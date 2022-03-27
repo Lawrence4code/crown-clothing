@@ -23,7 +23,6 @@ const SignUpForm = () => {
         const {name, value } = event.target;
 
         setFormFields({...formFields, [name]: value})
-        console.log({formFields})
         
     }
 
@@ -38,10 +37,10 @@ const SignUpForm = () => {
             alert('password do no match!')
             return;
         }
+
         try {
-               const response = await createAuthUserWithEmailAndPassword(email, password)
-               console.log({response})
-               await createUserDocumentFromAuth(response.user, { displayName})
+               const {user} = await createAuthUserWithEmailAndPassword(email, password)
+               await createUserDocumentFromAuth(user, { displayName})
                resetFormFields()
             
         } catch (error) {
