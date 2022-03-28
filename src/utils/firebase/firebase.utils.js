@@ -40,7 +40,6 @@ export const createUserDocumentFromAuth = async (
   userAuth,
   additionalInformation = {}
 ) => {
-  console.log('createUserDocumentFromAuth ttt');
   if (!userAuth) return;
 
   const userDocRef = doc(db, 'users', userAuth.uid);
@@ -58,7 +57,6 @@ export const createUserDocumentFromAuth = async (
         ...additionalInformation,
       });
     } catch (error) {
-      console.log({ error });
       // switch(error.code) {
       // TODO
       // }
