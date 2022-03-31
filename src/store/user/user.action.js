@@ -1,4 +1,4 @@
-import { createAction } from '../../utils/reducer/reducer.util';
+import { createAction } from '../../utils/reducer/reducer.utils';
 import { USER_ACTION_TYPE } from './user.types';
 
 export const setCurrentUser = (user) =>

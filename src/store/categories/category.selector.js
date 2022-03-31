@@ -7,10 +7,10 @@
 
 import { createSelector } from 'reselect';
 
-const createCategoryReducer = (state) => state.categories;
+const selectCategoryReducer = (state) => state.categories;
 
 export const selectCategories = createSelector(
-  [createCategoryReducer],
+  [selectCategoryReducer],
   (categoriesSlice) => categoriesSlice.categories
 );
 

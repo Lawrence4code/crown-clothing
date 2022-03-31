@@ -1,6 +1,10 @@
-import { useContext } from 'react';
+import { useSelector } from 'react-redux';
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
-import { CartContext } from '../../contexts/cart.context';
+import {
+  selectCartItems,
+  selectCartTotal,
+} from '../../store/cart/cart.selector';
+
 import {
   CheckoutContainer,
   CheckoutHeader,
@@ -9,11 +13,13 @@ import {
 } from './checkout.styles';
 
 const Checkout = () => {
-  const { cartItems, cartTotal } = useContext(CartContext);
+  const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
 
   if (cartItems.length === 0) {
     return <h2>No products in your cart.</h2>;
   }
+
   return (
     <CheckoutContainer>
       <CheckoutHeader>
