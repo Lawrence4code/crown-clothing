@@ -93,11 +93,9 @@ const SignUpForm = () => {
     </SignUpContainer>
   );
 };
+
 // converted to component
-{
-  /* <label htmlFor="displayName">Display Name </label> */
-}
-{
-  /* <input type="text" required name="displayName" value={displayName} onChange={handleChange}/> */
-}
+/* <label htmlFor="displayName">Display Name </label> */
+/* <input type="text" required name="displayName" value={displayName} onChange={handleChange}/> */
+
 export default SignUpForm;
