@@ -1,8 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { useContext } from 'react';
 
-import { UserContext } from '../../contexts/user.context';
-
 import { ReactComponent as CrownLogo } from './../../assets/crown.svg';
 
 import { signOutAuthUser } from './../../utils/firebase/firebase.utils';
@@ -16,14 +14,15 @@ import {
   NavLinks,
   NavLink,
 } from './navigation.styles.jsx';
+import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '../../store/user/user.selector';
 
 const Navigation = () => {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const currentUser = useSelector(selectCurrentUser);
   const { isCartOpen } = useContext(CartContext);
 
   const signOutHandler = async () => {
     await signOutAuthUser();
-    setCurrentUser(null);
   };
 
   return (
